@@ -12,10 +12,18 @@ Ex:  hello(null) => null
 
 */
 
-function hello() {
+function hello(name) {
   // WRITE YOUR CODE UNDER THIS LINE  
-
+if(name === "" || name === null){
+return null;
 }
+return "HELLO " + name;
+}
+
+console.log(hello(""));
+console.log(hello("Jouza"));
+console.log(hello("Alex"));
+console.log(hello(null));
 
 
 /* Q2:
@@ -32,12 +40,16 @@ Ex: calculateTax(100,0.15)
 => "You got 100 JD from sales, you should pay 15 JD for tax and you will have 85 JD as net sales."
 */
 
-function calculateTax() {
+function calculateTax(numberOfSales, amountOfTax) {
   // WRITE YOUR CODE UNDER THIS LINE 
-
+  var payValue =numberOfSales*amountOfTax;
+  var netSales =numberOfSales-payValue;
+return "You got "+numberOfSales+" JD from sales, you should pay "+payValue+" JD for tax and you will have "+netSales+" JD as net sales."
 }
 
-
+console.log(calculateTax(500,0.16));
+console.log(calculateTax(315,0.10));
+console.log(calculateTax(100,0.15));
 /* Q3:
 Using while
 Create a function called repeatChar
@@ -52,11 +64,24 @@ Ex: repeatChar("a",2); => "a, A"
 Ex: repeatChar("C",5); => "C, c, C, c, C"
 */
 
-function repeatChar() {
-  // WRITE YOUR CODE UNDER THIS LINE         
-
+function repeatChar(char, number) {
+  // WRITE YOUR CODE UNDER THIS LINE
+var resultString="";       
+while(number>0){
+return resultString=resultString+ char + ", " ;
+if(char[0] > 'a') {
+  return resultString=resultString+ char[0].toUpperCase()+ ", ";
+}
+else{
+  return resultString=resultString+ char[0].toLowerCase()+ ", ";
 }
 
+number--;
+}
+return resultString;
+}
+console.log(repeatChar("a",2));
+console.log(repeatChar("C",5));
 
 /* Q4:
 Using recursion 
@@ -72,9 +97,14 @@ Ex: stringToCapital("Are you a student in coding ACADEMY by ORANGE ?")
 => "ARE YOU A STUDENT IN CODING ACADEMY BY ORANGE ?"
 */
 
-function stringToCapital() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function stringToCapital(string) {
+  // WRITE YOUR CODE UNDER THIS LINE  
+  if(string.length ===0) {
+    return "";
+  }  
 
+return stringToCapital(string.toUpperCase()) ;
 }
-
+console.log(stringToCapital("My Name Is: Alex !"));
+console.log(stringToCapital("Are you a student in coding ACADEMY by ORANGE ?"));
 // Good luck :)
